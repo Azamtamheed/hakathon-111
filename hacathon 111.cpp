@@ -120,13 +120,26 @@ while (arrival < 00.00 || arrival > 23.59)
  
 double getAirfare(double airfare)
 {
-    cout<<"Enter total airfare cost\n";
-    cin>>airfare;
-    while(airfare<=0)//Input Validation
+	 char choice ;
+    cout << "\nAny round-trip airfare? (Y/N): ";
+    cin>>choice;
+    while((choice != 'y') && (choice != 'Y') && (choice!= 'N') && (choice != 'n'))//Input Validation
+    {
+        cout<<"Enter Y for yes or N for no\n";
+        cin>>choice;
+    }
+    if(choice=='Y' || choice=='y')
+    {
+        while(airfare<=0)//Input Validation
     {
         cout<<" Please enter airfare cost\n";
         cin>>airfare;
     }
+ 
+    }
+    else if (choice=='N' || choice=='n')
+    airfare=0;
+    
     return airfare;
 }
  
